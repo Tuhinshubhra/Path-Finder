@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>A simple Path Finder</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body style="">
+		
+		<div id='visualize'>
+			<canvas id="myCanvas"></canvas>
+		</div>
+		
+		<div id="controls">
+			<h1>Path Finding using A*</h1>
+			<br>
+			<h2>Key Bindings</h2>
+			<h3><div class="key">🖱️</div> Left-Click to SELECT/DESELECT a node</h3> 
+			<h3><div class="key">🖱️</div> Right-Click to remove any property</h3><br>
+			<br>
+			<h3><div class="key">S</div> Press "S" to set node as START</h3><br>
+			<h3><div class="key">E</div> Press "E" to set node as END</h3><br>
+			<h3><div class="key">D</div> Press "D" to set node as OBSTACLE</h3><br>
+			<h3><div class="key">_</div> Press [SPACE] to begin path finding</h3><br>
+			<h3><div class="key">↑</div> Select Top Node</h3><br>
+			<h3><div class="key">↓</div> Select Bottom Node</h3><br>
+			<h3><div class="key">→</div> Select Next Node</h3><br>
+			<h3><div class="key">←</div> Select Previous Node</h3><br>
+			<br>
+			<h2>Controls</h2>
+			<h3>Animation Speed : </h3> <input type="range" min="2" max="30" value="4" class="slider" id="animspeed"><h3 id="asv" style="color: lime;"></h3><br>
+			<h3>Node Side Length: </h3> <input type="range" min="20" max="100" value="40" class="slider" id="nodesize"><h3 id="nsv" style="color: lime;"></h3><br>
+			<h3>Show Debug info : </h3>
+			<label class="switch">
+			  <input type="checkbox" checked id="dbginfo">
+			  <span class="sw round"></span>
+			</label>
+			<h3 id="dv" style="color: lime;"></h3>
+			<br>
+			<h3>Allow Diagonal : </h3>
+			<label class="switch">
+			  <input type="checkbox" id="diagonal">
+			  <span class="sw round"></span>
+			</label>
+			<h3 id="adv" style="color: lime;"></h3>
+			<br>
+			<h3>Heuristic Method: </h3>
+			<select name="heuristic" id="heuristic">
+			<option value="m" selected>Manhattan</option>
+			<option value="e">Euclidian</option>
+			<option value="o">Octile</option>
+			<option value="c">Chebyshev</option>
+		  </select>
+			<br>
+			<button class="resetbutt" onclick="f_resetSearch()">RESET SEARCH</button>
+			<button class="resetbutt" onclick="f_init()">RESET CANVAS</button>
+			<button class="resetbutt" onclick="window.location.reload()">RESET EVERYTHING</button>
+			<br>
+			<h2>Color Codes</h2>
+			<div class="pill" style="--data-color:lime">Path</div> 
+			<div class="pill" style="--data-color:blue">Neighbours</div> 
+			<div class="pill" style="--data-color:red">Obstacle</div> 
+			<div class="pill" style="--data-color:white">Currently Being Scanned</div> 
+			<div class="pill" style="--data-color:aqua">Scanned</div> 
+			<div class="pill" style="--data-color:orange">Target Node</div>
+			<div class="pill" style="--data-color:greenyellow">Starting Node</div>
+		</div>
+		<script src="algo.js"></script>
+	</body>
+	
+	
+
+</html>
